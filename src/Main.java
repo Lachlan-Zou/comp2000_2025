@@ -5,20 +5,24 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main extends JFrame {
-    public static void main(String[] args) throws Exception {
+
+  public static void main(String[] args) throws Exception {
       Main window = new Main();
       window.run();
     }
 
     class Canvas extends JPanel {
+      Grid myGrid;
       public Canvas() {
         setPreferredSize(new Dimension(720, 720));
+        myGrid = new Grid(10,10);
       }
 
       @Override
       public void paint(Graphics g) {
-	g.setColor(java.awt.Color.BLACK);
-	g.drawRect(10, 10, 700, 700);
+        g.setColor(java.awt.Color.BLACK);
+        g.drawRect(10, 10, 700, 700);
+        myGrid.drawGrid(g);
       }
     }
 
