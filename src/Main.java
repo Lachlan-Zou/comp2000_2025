@@ -1,8 +1,7 @@
 import java.awt.*;
-import javax.swing.ButtonGroup;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 public class Main extends JFrame {
 
@@ -29,28 +28,17 @@ public class Main extends JFrame {
 
       Canvas canvas = new Canvas();
       this.add(canvas, BorderLayout.CENTER);
-      this.setContentPane(canvas);
+      //this.setContentPane(canvas);
 
-      JPanel controls = new JPanel();
-      JRadioButton dogButton = new JRadioButton("dog");
-      JRadioButton catButton = new JRadioButton("cat");
-      JRadioButton birdButton = new JRadioButton("bird");
+      Control controls = new Control();
+      this.add(controls, BorderLayout.EAST);
+      controls.setLayout(new BoxLayout(controls, BoxLayout.Y_AXIS));
 
-      ButtonGroup group = new ButtonGroup();
-      group.add(dogButton);
-      group.add(catButton);
-      group.add(birdButton);
-
-      controls.add(dogButton);
-      controls.add(catButton);
-      controls.add(birdButton);
-
-      this.add(controls, BorderLayout.WEST);
+      String choice = controls.getSelectedOption();
+      System.out.println("You picked: " + choice);
       
       this.pack();
       this.setVisible(true);
-      
-
     }
 
     public void run() {
