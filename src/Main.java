@@ -31,7 +31,9 @@ public class Main extends JFrame {
               String option = controls.getSelectedOption();
               Actor newActor = null;
 
-              if (null != option) switch (option) {
+              // If an option is selected
+              if (null != option) {
+                switch (option) {
                     case "Cat":
                         newActor = new Cat(cell);
                         break;
@@ -44,8 +46,13 @@ public class Main extends JFrame {
                     default:
                         break;
                 }
+              }
 
-              if ()
+              // Find if the actor in the cell already exists
+              Actor existing = Change.findActorInGrid(stage, cell);
+              if (existing != null) {
+                  stage.actors.remove(existing);  // remove old one
+              }
 
               if (newActor != null) {
                   stage.actors.add(newActor); // add to the stage

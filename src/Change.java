@@ -10,9 +10,9 @@ public class Change {
         this.stage = stage;
     }
 
-    public static Actor findActorInGrid(Cell cell, List<Actor> actors) {
-        for (Actor a : actors) {
-            if (a.getCell().equals(cell)) {
+    public static Actor findActorInGrid(Stage stage, Cell cell) {
+        for (Actor a : stage.actors) {
+            if (a.loc.equals(cell)) {
                 return a;
             }
         }
