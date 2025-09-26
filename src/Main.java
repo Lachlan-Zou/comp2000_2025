@@ -21,7 +21,6 @@ public class Main extends JFrame {
         
         addMouseListener(new MouseAdapter() {
           @Override
-
           public void mouseClicked(MouseEvent e) {
             Point point = e.getPoint();
             Optional<Cell> clickedCell = stage.grid.cellAtPoint(point);
@@ -79,10 +78,6 @@ public class Main extends JFrame {
 
       Canvas canvas = new Canvas(controls);
       this.add(canvas, BorderLayout.CENTER);
-      //this.setContentPane(canvas);
-
-
-
       String choice = controls.getSelectedOption();
       System.out.println("You picked: " + choice);
       
