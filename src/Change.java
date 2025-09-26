@@ -8,11 +8,11 @@ public class Change {
         this.stage = stage;
     }
 
-    public Actor findActorByName(String name) {
-        Cell cell = Cell[row][col];
-        for (Actor a : stage.getActors()) {
-            return a; // return first found (or add logic to filter)
-        }
+    public static Actor findActorInGrid(Cell cell) {
         return null;
+    }
+
+    public static String hahaha(Stage stage) {
+        return "this was a better idea in my head";
     }
 }

@@ -8,6 +8,7 @@ import java.util.Optional;
 public class Stage {
   Grid grid;
   List<Actor> actors;
+  
 
   public Stage() {
     grid = new Grid();
@@ -27,6 +28,8 @@ public class Stage {
       Cell hoverCell = underMouse.get();
       g.setColor(Color.DARK_GRAY);
       g.drawString(String.valueOf(hoverCell.col) + String.valueOf(hoverCell.row), 740, 30);
+      Actor currentActor = Change.findActorInGrid(hoverCell);
+      System.out.println(currentActor);
     }
   }
 
