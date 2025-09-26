@@ -1,10 +1,13 @@
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Optional;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Main extends JFrame {
-
+    public static Control controls;
     public static void main(String[] args) throws Exception {
       Main window = new Main();
       window.run();
@@ -12,8 +15,45 @@ public class Main extends JFrame {
 
     class Canvas extends JPanel {
       Stage stage = new Stage();
-      public Canvas() {
+
+      public Canvas(Control controls) {
         setPreferredSize(new Dimension(1024, 720));
+        
+        addMouseListener(new MouseAdapter() {
+          @Override
+
+          public void mouseClicked(MouseEvent e) {
+            Point point = e.getPoint();
+            Optional<Cell> clickedCell = stage.grid.cellAtPoint(point);
+
+            if (clickedCell.isPresent()) {
+              Cell cell = clickedCell.get();
+              String option = controls.getSelectedOption();
+              Actor newActor = null;
+
+              if (null != option) switch (option) {
+                    case "Cat":
+                        newActor = new Cat(cell);
+                        break;
+                    case "Dog":
+                        newActor = new Dog(cell);
+                        break;
+                    case "Bird":
+                        newActor = new Bird(cell);
+                        break;
+                    default:
+                        break;
+                }
+
+              if ()
+
+              if (newActor != null) {
+                  stage.actors.add(newActor); // add to the stage
+                  repaint();    
+              }
+            }
+          }
+        });
       }
 
       @Override
@@ -26,13 +66,15 @@ public class Main extends JFrame {
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       this.setLayout(new BorderLayout());
 
-      Canvas canvas = new Canvas();
-      this.add(canvas, BorderLayout.CENTER);
-      //this.setContentPane(canvas);
-
       Control controls = new Control();
       this.add(controls, BorderLayout.EAST);
       controls.setLayout(new BoxLayout(controls, BoxLayout.Y_AXIS));
+
+      Canvas canvas = new Canvas(controls);
+      this.add(canvas, BorderLayout.CENTER);
+      //this.setContentPane(canvas);
+
+
 
       String choice = controls.getSelectedOption();
       System.out.println("You picked: " + choice);

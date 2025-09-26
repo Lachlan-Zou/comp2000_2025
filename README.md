@@ -7,4 +7,6 @@ You are free to clone this repository into your own hosted git environment, such
 
 *However*, please be aware that any repository containing your assignment code **must** be made private. Any repository with assignment code that is public available, or found to be shared with other students, will be considered a violation of the academic integrity policy.
 
-For the first assignment of COMP2000, I decided that my added functionality would be the ability to move the actors across the stage 
+For the first assignment of COMP2000, I decided that my added functionality would be the ability to add new actors along the stage where ever the user decides to click on.
+
+People could also change the actor placed based on the 

@@ -19,9 +19,4 @@ public class Change {
         return null;
     }
 
-
-
-    public static String hahaha(Stage stage) {
-        return "this was a better idea in my head";
-    }
 }

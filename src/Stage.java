@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,12 +29,24 @@ public class Stage {
       Cell hoverCell = underMouse.get();
       g.setColor(Color.DARK_GRAY);
       g.drawString(String.valueOf(hoverCell.col) + String.valueOf(hoverCell.row), 740, 30);
-      Actor currentActor = Change.findActorInGrid(hoverCell, actors);
-      System.out.println(currentActor);
+
+
     }
+    
+    //actors.add(Change.makeTestCat(this));
+    //Actor testCat = Change.makeTestCat(new Cell(A, 3, 35, 35));
+    //actors.add(new Cat(grid.cellAtColRow(0, 0).get()));
   }
 
   public List<Actor> getActors() {
     return actors;
+  }
+
+  public Grid getGrid() {
+    return grid;
+  }
+
+  public void mouseClicked(MouseEvent e) {
+
   }
 }
