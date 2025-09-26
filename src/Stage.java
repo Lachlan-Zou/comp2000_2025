@@ -15,7 +15,7 @@ public class Stage {
     actors = new ArrayList<Actor>();
     actors.add(new Cat(grid.cellAtColRow(0, 0).get()));
     actors.add(new Dog(grid.cellAtColRow(0, 15).get()));
-    actors.add(new Bird(grid.cellAtColRow(12, 9).get()));    
+    actors.add(new Bird(grid.cellAtColRow(12, 9).get()));
   }
 
   public void paint(Graphics g, Point mouseLoc) {
@@ -28,7 +28,7 @@ public class Stage {
       Cell hoverCell = underMouse.get();
       g.setColor(Color.DARK_GRAY);
       g.drawString(String.valueOf(hoverCell.col) + String.valueOf(hoverCell.row), 740, 30);
-      Actor currentActor = Change.findActorInGrid(hoverCell);
+      Actor currentActor = Change.findActorInGrid(hoverCell, actors);
       System.out.println(currentActor);
     }
   }
